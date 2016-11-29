@@ -37,6 +37,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewModels\FirstPageViewModel.cs" />
     <Compile Include="XamarinFormsGachiSample2016WinterPage.xaml.cs">
       <DependentUpon>XamarinFormsGachiSample2016WinterPage.xaml</DependentUpon>
     </Compile>
