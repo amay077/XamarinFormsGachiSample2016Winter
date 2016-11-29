@@ -3,6 +3,7 @@ using System.Reactive.Linq;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Reactive.Bindings;
+using XamarinFormsGachiSample2016Winter.Models;
 
 namespace XamarinFormsGachiSample2016Winter.ViewModels
 {
@@ -12,14 +13,15 @@ namespace XamarinFormsGachiSample2016Winter.ViewModels
 
 		public ReactiveCommand NextCommand { get; }
 
-        public FirstPageViewModel(INavigationService navigationService)
+        public FirstPageViewModel(INavigationService navigationService, IGeoCoder geoCoder)
         {
             Address.Value = "hogehoge";
 			NextCommand = Address.Select(x => !string.IsNullOrEmpty(x)).ToReactiveCommand();
 
             NextCommand.Subscribe(async _ =>
             {
-                await navigationService.NavigateAsync("SecondPage");
+                var latLong = await geoCoder.Forward(Address.Value);
+                await navigationService.NavigateAsync($"SecondPage?lat={latLong.Latitude}&lng={latLong.Longitude}");
             });
         }
     }

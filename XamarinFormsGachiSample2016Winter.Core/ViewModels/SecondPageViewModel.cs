@@ -1,16 +1,29 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
+using Prism.Navigation;
 using Reactive.Bindings;
 using XamarinFormsGachiSample2016Winter.Primitives;
 
 namespace XamarinFormsGachiSample2016Winter.ViewModels
 {
-    public class SecondPageViewModel
+    public class SecondPageViewModel : INavigationAware
     {
         public ReactiveProperty<LatLong> Position { get; } = new ReactiveProperty<LatLong>();
 
         public SecondPageViewModel()
         {
-            Position.Value = new LatLong(35d, 136d);
         }
+
+        public void OnNavigatedTo(NavigationParameters parameters)
+		{
+			var lat = Convert.ToDouble(parameters["lat"]);
+			var lng = Convert.ToDouble(parameters["lng"]);
+            Position.Value = new LatLong(lat, lng);
+        }
+
+        public void OnNavigatedFrom(NavigationParameters parameters)
+        {
+        }
+
     }
 }
