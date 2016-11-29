@@ -1,5 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XamarinFormsGachiSample2016Winter.Views.SecondPage">
-	<ContentPage.Content>
-	</ContentPage.Content>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:XamarinFormsGachiSample2016Winter.Behaviors;assembly=XamarinFormsGachiSample2016Winter"
+             xmlns:map="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             x:Class="XamarinFormsGachiSample2016Winter.Views.SecondPage">
+    <ContentPage.Content>
+        <map:Map x:Name="map" behaviors:MapBehavior.Position="{Binding Position.Value}" />
+    </ContentPage.Content>
 </ContentPage>
