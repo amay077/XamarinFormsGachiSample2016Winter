@@ -1,10 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              mvvm:ViewModelLocator.AutowireViewModel="True"
              x:Class="XamarinFormsGachiSample2016Winter.Views.FirstPage">
     <ContentPage.Content>
-        <Entry Text="{Binding Address, Mode=TwoWay}"/>
+        <StackLayout Orientation="Vertical" Padding="20">
+            <Entry Text="{Binding Address.Value, Mode=TwoWay}" />
+            <Button Text="NEXT" Command="{Binding NextCommand}" />
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

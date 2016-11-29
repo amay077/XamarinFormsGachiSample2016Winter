@@ -1,19 +1,26 @@
-﻿using Prism.Mvvm;
+﻿using System;
+using System.Reactive.Linq;
+using Prism.Mvvm;
+using Prism.Navigation;
+using Reactive.Bindings;
 
 namespace XamarinFormsGachiSample2016Winter.ViewModels
 {
-    public class FirstPageViewModel : BindableBase
+    public class FirstPageViewModel
     {
-        private string _address;
-        public string Address
-        {
-            get { return _address; }
-            set { SetProperty(ref _address, value); }
-        }
+        public ReactiveProperty<string> Address { get; } = new ReactiveProperty<string>();
 
-        public FirstPageViewModel()
+		public ReactiveCommand NextCommand { get; }
+
+        public FirstPageViewModel(INavigationService navigationService)
         {
-            Address = "hoge";
+            Address.Value = "hogehoge";
+			NextCommand = Address.Select(x => !string.IsNullOrEmpty(x)).ToReactiveCommand();
+
+            NextCommand.Subscribe(async _ =>
+            {
+                await navigationService.NavigateAsync("SecondPage");
+            });
         }
     }
 }
