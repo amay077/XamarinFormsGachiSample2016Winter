@@ -1,5 +1,6 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.GoogleMaps;
+using XamarinFormsGachiSample2016Winter.Primitives;
 
 namespace XamarinFormsGachiSample2016Winter.Behaviors
 {
@@ -8,17 +9,17 @@ namespace XamarinFormsGachiSample2016Winter.Behaviors
         public static readonly BindableProperty PositionProperty =
             BindableProperty.CreateAttached(
                 "Position",
-                typeof(Position),
+                typeof(LatLong),
                 typeof(MapBehavior),
-                new Position(30, 135),
+                new LatLong(30, 135),
                 propertyChanged: OnPositionChanged);
 
-        public static Position GetPosition(BindableObject view)
+        public static LatLong GetPosition(BindableObject view)
         {
-            return (Position) view.GetValue(PositionProperty);
+            return (LatLong) view.GetValue(PositionProperty);
         }
 
-        public static void SetPosition(BindableObject view, Position value)
+        public static void SetPosition(BindableObject view, LatLong value)
         {
             view.SetValue(PositionProperty, value);
         }
@@ -31,13 +32,15 @@ namespace XamarinFormsGachiSample2016Winter.Behaviors
                 return;
             }
 
-            var position = newValue as Position?;
-            if (!position.HasValue)
+            var latlng = newValue as LatLong;
+            if (latlng == null)
             {
                 return;
             }
 
-            map.MoveToRegion(MapSpan.FromCenterAndRadius(position.Value, Distance.FromMeters(500)));
+            map.MoveToRegion(MapSpan.FromCenterAndRadius(
+                    new Position(latlng.Latitude, latlng.Longitude),
+                    Distance.FromMeters(500)));
         }
 
         static void OnEntryTextChanged(object sender, TextChangedEventArgs args)

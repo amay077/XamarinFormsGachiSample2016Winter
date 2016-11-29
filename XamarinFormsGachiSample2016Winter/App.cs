@@ -1,4 +1,5 @@
 ﻿using System;
+using Prism.Mvvm;
 using Prism.Unity;
 using Xamarin.Forms;
 using XamarinFormsGachiSample2016Winter.Views;
@@ -17,6 +18,12 @@ namespace XamarinFormsGachiSample2016Winter
 	    protected override void OnInitialized()
 	    {
 	        NavigationService.NavigateAsync("NavigationPage/FirstPage");
+	    }
+
+	    protected override void ConfigureViewModelLocator()
+	    {
+	        base.ConfigureViewModelLocator();
+	        ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(ViewTypeToViewModelTypeResolver.Resolve);
 	    }
 	}
 }

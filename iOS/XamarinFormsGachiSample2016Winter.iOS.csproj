@@ -155,6 +155,10 @@
       <Project>{721367BC-9547-4972-B25D-AF4CC07AE28B}</Project>
       <Name>XamarinFormsGachiSample2016Winter</Name>
     </ProjectReference>
+    <ProjectReference Include="..\XamarinFormsGachiSample2016Winter.Core\XamarinFormsGachiSample2016Winter.Core.csproj">
+      <Project>{9E17B587-F4D5-48A2-8D56-E383711CA388}</Project>
+      <Name>XamarinFormsGachiSample2016Winter.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">

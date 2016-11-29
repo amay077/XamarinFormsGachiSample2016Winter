@@ -1,16 +1,16 @@
 ﻿using System.Threading;
 using Reactive.Bindings;
-using Xamarin.Forms.GoogleMaps;
+using XamarinFormsGachiSample2016Winter.Primitives;
 
 namespace XamarinFormsGachiSample2016Winter.ViewModels
 {
     public class SecondPageViewModel
     {
-        public ReactiveProperty<Position> Position { get; } = new ReactiveProperty<Position>();
+        public ReactiveProperty<LatLong> Position { get; } = new ReactiveProperty<LatLong>();
 
         public SecondPageViewModel()
         {
-            Position.Value = new Position(35d, 136d);
+            Position.Value = new LatLong(35d, 136d);
         }
     }
 }
