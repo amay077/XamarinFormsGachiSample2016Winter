@@ -15,7 +15,7 @@ namespace XamarinFormsGachiSample2016Winter.ViewModels
 
         public FirstPageViewModel(INavigationService navigationService, IGeoCoder geoCoder)
         {
-            Address.Value = "Tokyo station";
+            Address.Value = "東京都渋谷区";
 			NextCommand = Address.Select(x => !string.IsNullOrEmpty(x)).ToReactiveCommand();
 
             NextCommand.Subscribe(async _ =>

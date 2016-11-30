@@ -21,8 +21,8 @@
                      behaviors:MapBehavior.Pin="{Binding Pin.Value}"
                      behaviors:MapBehavior.Position="{Binding Position.Value}"
                      VerticalOptions="FillAndExpand" />
-            <Button Text="Spot" Grid.Row="1" Grid.Column="0" />
-            <Button Text="Current" Grid.Row="1" Grid.Column="1" />
+            <Button Text="Spot" Grid.Row="1" Grid.Column="0" Command="{Binding SpotCommand}" />
+            <Button Text="Current" Grid.Row="1" Grid.Column="1" Command="{Binding CurrentCommand}" />
 
         </Grid>
     </ContentPage.Content>

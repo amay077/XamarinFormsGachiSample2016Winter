@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinFormsGachiSample2016Winter", "XamarinFormsGachiSample2016Winter\XamarinFormsGachiSample2016Winter.csproj", "{721367BC-9547-4972-B25D-AF4CC07AE28B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinFormsGachiSample2016Winter.ViewCore", "XamarinFormsGachiSample2016Winter\XamarinFormsGachiSample2016Winter.ViewCore.csproj", "{721367BC-9547-4972-B25D-AF4CC07AE28B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinFormsGachiSample2016Winter.iOS", "iOS\XamarinFormsGachiSample2016Winter.iOS.csproj", "{203E7CCF-8714-4D9A-9827-E8588BBD60E5}"
 EndProject
