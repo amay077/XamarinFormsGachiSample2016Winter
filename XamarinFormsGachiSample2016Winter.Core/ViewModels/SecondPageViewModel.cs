@@ -18,7 +18,8 @@ namespace XamarinFormsGachiSample2016Winter.ViewModels
 		{
 			var lat = Convert.ToDouble(parameters["lat"]);
 			var lng = Convert.ToDouble(parameters["lng"]);
-            Position.Value = new LatLong(lat, lng);
+   			var title = Convert.ToDouble(parameters["title"]);
+         	Position.Value = new LatLong(lat, lng);
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)

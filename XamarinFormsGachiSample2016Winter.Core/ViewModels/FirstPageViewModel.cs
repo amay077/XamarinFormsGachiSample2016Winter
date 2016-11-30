@@ -20,8 +20,8 @@ namespace XamarinFormsGachiSample2016Winter.ViewModels
 
             NextCommand.Subscribe(async _ =>
             {
-                var latLong = await geoCoder.Forward(Address.Value);
-                await navigationService.NavigateAsync($"SecondPage?lat={latLong.Latitude}&lng={latLong.Longitude}");
+                var res = await geoCoder.Forward(Address.Value);
+				await navigationService.NavigateAsync($"SecondPage?lat={res.lat}&lng={res.lon}&title={res.display_name}");
             });
         }
     }
