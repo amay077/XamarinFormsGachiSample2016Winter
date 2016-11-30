@@ -5,7 +5,7 @@
              xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              mvvm:ViewModelLocator.AutowireViewModel="True"
              x:Class="XamarinFormsGachiSample2016Winter.Views.FirstPage"
-             Title="Map">
+             Title="Main">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" Padding="20">
             <Entry Text="{Binding Address.Value, Mode=TwoWay}" />

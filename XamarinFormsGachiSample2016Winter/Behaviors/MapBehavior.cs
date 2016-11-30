@@ -24,6 +24,23 @@ namespace XamarinFormsGachiSample2016Winter.Behaviors
             view.SetValue(PinProperty, value);
         }
 
+        public static readonly BindableProperty PositionProperty =
+            BindableProperty.CreateAttached(
+                "Position",
+                typeof(LatLong),
+                typeof(MapBehavior),
+                (LatLong)null,
+                propertyChanged: OnPositionChanged);
+
+        public static LatLong GetPosition(BindableObject view)
+        {
+            return (LatLong) view.GetValue(PositionProperty);
+        }
+        public static void SetPosition(BindableObject view, LatLong value)
+        {
+            view.SetValue(PositionProperty, value);
+        }
+
         static void OnPinChanged(BindableObject view, object oldValue, object newValue)
         {
             var map = view as Map;
@@ -47,6 +64,24 @@ namespace XamarinFormsGachiSample2016Winter.Behaviors
             map.Pins.Clear();
             map.Pins.Add(pin);
             map.SelectedPin = pin;
+        }
+
+        private static void OnPositionChanged(BindableObject view, object oldValue, object newValue)
+        {
+            var map = view as Map;
+            if (map == null)
+            {
+                return;
+            }
+
+            var latlon = newValue as LatLong;
+            if (latlon == null)
+            {
+                return;
+            }
+
+            map.MoveToRegion(MapSpan.FromCenterAndRadius(
+                new Position(latlon.Latitude, latlon.Longitude), Distance.FromKilometers(20)), true);
         }
     }
 }
