@@ -10,10 +10,6 @@ namespace XamarinFormsGachiSample2016Winter.ViewModels
     {
         public ReactiveProperty<LatLong> Position { get; } = new ReactiveProperty<LatLong>();
 
-        public SecondPageViewModel()
-        {
-        }
-
         public void OnNavigatedTo(NavigationParameters parameters)
 		{
 			var lat = Convert.ToDouble(parameters["lat"]);
