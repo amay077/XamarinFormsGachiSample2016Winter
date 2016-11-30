@@ -11,19 +11,19 @@ namespace XamarinFormsGachiSample2016Winter.Models
 {
     public class GeoCoder : IGeoCoder
     {
-        HttpClient  _client = new HttpClient();
+        readonly HttpClient _client = new HttpClient();
 
-        public Task<NominatimResponse> Forward(string query)
+        public Task<Location> Forward(string query)
         {
             var task = _client.GetStringAsync($"http://nominatim.openstreetmap.org/search?format=json&q={query}")
                 .ToObservable()
                 .Select(
                     json =>
                     {
-                        var list = JsonConvert.DeserializeObject<NominatimResponse[]>(json);
+                        var list = JsonConvert.DeserializeObject<Location[]>(json);
 						return list.Length > 0 ? list[0] : null;
 
-                    }).ToTask<NominatimResponse>();
+                    }).ToTask<Location>();
             return task;
         }
     }

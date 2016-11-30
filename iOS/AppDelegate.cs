@@ -13,7 +13,7 @@ namespace XamarinFormsGachiSample2016Winter.iOS
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
 			global::Xamarin.Forms.Forms.Init();
-			Xamarin.FormsGoogleMaps.Init("dummy_api_key");
+			Xamarin.FormsGoogleMaps.Init("dummy_api_key"); 
 
 			LoadApplication(new App());
 

@@ -5,6 +5,6 @@ namespace XamarinFormsGachiSample2016Winter.Models
 {
     public interface IGeoCoder
     {
-        Task<NominatimResponse> Forward(string query);
+        Task<Location> Forward(string query);
     }
 }

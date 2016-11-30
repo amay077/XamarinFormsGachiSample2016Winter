@@ -4,12 +4,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:behaviors="clr-namespace:XamarinFormsGachiSample2016Winter.Behaviors;assembly=XamarinFormsGachiSample2016Winter"
              xmlns:map="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
-             x:Class="XamarinFormsGachiSample2016Winter.Views.SecondPage">
+             x:Class="XamarinFormsGachiSample2016Winter.Views.SecondPage"
+             Title="Main">
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical">
-            <map:Map x:Name="map"
-                    behaviors:MapBehavior.Position="{Binding Position.Value}"
-                    VerticalOptions="FillAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <map:Map x:Name="map" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                     behaviors:MapBehavior.Pin="{Binding Pin.Value}"
+                     VerticalOptions="FillAndExpand" />
+            <Button Text="Spot" Grid.Row="1" Grid.Column="0" />
+            <Button Text="Current" Grid.Row="1" Grid.Column="1" />
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

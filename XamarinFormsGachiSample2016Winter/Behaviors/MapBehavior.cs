@@ -1,30 +1,30 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.GoogleMaps;
+using XamarinFormsGachiSample2016Winter.Models;
 using XamarinFormsGachiSample2016Winter.Primitives;
 
 namespace XamarinFormsGachiSample2016Winter.Behaviors
 {
     public static class MapBehavior
     {
-        public static readonly BindableProperty PositionProperty =
+        public static readonly BindableProperty PinProperty =
             BindableProperty.CreateAttached(
-                "Position",
-                typeof(LatLong),
+                "Pin",
+                typeof(Location),
                 typeof(MapBehavior),
-                new LatLong(30, 135),
-                propertyChanged: OnPositionChanged);
+                (Location)null,
+                propertyChanged: OnPinChanged);
 
-        public static LatLong GetPosition(BindableObject view)
+        public static Location GetPin(BindableObject view)
         {
-            return (LatLong) view.GetValue(PositionProperty);
+            return (Location) view.GetValue(PinProperty);
+        }
+        public static void SetPin(BindableObject view, Location value)
+        {
+            view.SetValue(PinProperty, value);
         }
 
-        public static void SetPosition(BindableObject view, LatLong value)
-        {
-            view.SetValue(PositionProperty, value);
-        }
-
-        static void OnPositionChanged(BindableObject view, object oldValue, object newValue)
+        static void OnPinChanged(BindableObject view, object oldValue, object newValue)
         {
             var map = view as Map;
             if (map == null)
@@ -32,22 +32,21 @@ namespace XamarinFormsGachiSample2016Winter.Behaviors
                 return;
             }
 
-            var latlng = newValue as LatLong;
-            if (latlng == null)
+            var location = newValue as Location;
+            if (location == null)
             {
                 return;
             }
 
-            map.MoveToRegion(MapSpan.FromCenterAndRadius(
-                    new Position(latlng.Latitude, latlng.Longitude),
-                    Distance.FromMeters(500)));
-        }
+            var pin = new Pin
+            {
+                Label = location.DisplayName,
+                Position = new Position(location.Latitude, location.Longitude)
+            };
 
-        static void OnEntryTextChanged(object sender, TextChangedEventArgs args)
-        {
-            double result;
-            bool isValid = double.TryParse(args.NewTextValue, out result);
-            ((Entry) sender).TextColor = isValid ? Color.Default : Color.Red;
+            map.Pins.Clear();
+            map.Pins.Add(pin);
+            map.SelectedPin = pin;
         }
     }
 }

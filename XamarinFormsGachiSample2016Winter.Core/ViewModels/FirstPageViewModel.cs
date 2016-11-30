@@ -15,13 +15,16 @@ namespace XamarinFormsGachiSample2016Winter.ViewModels
 
         public FirstPageViewModel(INavigationService navigationService, IGeoCoder geoCoder)
         {
-            Address.Value = "hogehoge";
+            Address.Value = "Tokyo station";
 			NextCommand = Address.Select(x => !string.IsNullOrEmpty(x)).ToReactiveCommand();
 
             NextCommand.Subscribe(async _ =>
             {
                 var res = await geoCoder.Forward(Address.Value);
-				await navigationService.NavigateAsync($"SecondPage?lat={res.lat}&lng={res.lon}&title={res.display_name}");
+				if (res != null)
+				{
+					await navigationService.NavigateAsync($"SecondPage?lat={res.Latitude}&lng={res.Longitude}&title={res.DisplayName}");
+				}
             });
         }
     }
