@@ -4,8 +4,6 @@ using System.Reactive.Linq;
 using System.Reactive.Threading.Tasks;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Refit;
-using XamarinFormsGachiSample2016Winter.Primitives;
 
 namespace XamarinFormsGachiSample2016Winter.Models
 {

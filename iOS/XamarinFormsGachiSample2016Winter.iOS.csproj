@@ -91,18 +91,6 @@
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
       <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="ReactiveProperty, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\ReactiveProperty.2.9.0\lib\Xamarin.iOS10\ReactiveProperty.dll</HintPath>
-    </Reference>
-    <Reference Include="ReactiveProperty.DataAnnotations, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\ReactiveProperty.2.9.0\lib\Xamarin.iOS10\ReactiveProperty.DataAnnotations.dll</HintPath>
-    </Reference>
-    <Reference Include="ReactiveProperty.iOS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\ReactiveProperty.2.9.0\lib\Xamarin.iOS10\ReactiveProperty.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Refit, Version=2.4.1.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\refit.2.4.1\lib\Xamarin.iOS10\Refit.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\Rx-Core.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Core.dll</HintPath>
